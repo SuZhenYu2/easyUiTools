@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.ArrayUtils;
 import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
 
@@ -25,9 +24,11 @@ public class GenerateSearch {
 	 * @param cls 用来生成search框的注解 Search后的类
 	 * @return list<Map> 返回的是
 	 */
+	@SuppressWarnings("rawtypes")
 	public static List Generate(Class<?> cls) {
 		return Generate(cls,null);
 	}
+	@SuppressWarnings("rawtypes")
 	public static List Generate(Class<?> cls,Object obj) {
 		
 	        ArrayList<Field> fields= new ArrayList<>();
@@ -122,11 +123,9 @@ public class GenerateSearch {
 	            			 value = field.get(obj);
 	            		 }
 					} catch (IllegalArgumentException e) {
-						// TODO Auto-generated catch block
-						LOGGER.error(e.getMessage(), e);
+ 						LOGGER.error(e.getMessage(), e);
 					} catch (IllegalAccessException e) {
-						// TODO Auto-generated catch block
-						LOGGER.error(e.getMessage(), e);
+ 						LOGGER.error(e.getMessage(), e);
 					}
 	            	if(search.hidden()){
 	            		map.put("hidden", search.hidden());

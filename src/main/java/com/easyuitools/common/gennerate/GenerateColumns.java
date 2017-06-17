@@ -20,7 +20,8 @@ import com.github.pagehelper.PageInfo;
 
 public class GenerateColumns {
 	private static final Logger LOGGER = Logger.getLogger(GenerateColumns.class);	
-  	public static List<List<Map>> Generate(Class<?> cls) {
+  	@SuppressWarnings("rawtypes")
+	public static List<List<Map>> Generate(Class<?> cls) {
 		Field[] fields= cls.getDeclaredFields();
 		List<Map> list =new ArrayList<Map>();
 		List<List<Map>> list2 =new ArrayList<List<Map>>();
@@ -99,6 +100,7 @@ public class GenerateColumns {
 		}
 		return mapD;
 	}
+	@SuppressWarnings("rawtypes")
 	public static List<String> getListRow(List<Field> listField,Map<String,DecimalFormat> map,Map<String,SimpleDateFormat> mapD,Map replaceMap,Object obj){
 		if(obj==null){
 			return null;
@@ -153,10 +155,7 @@ public class GenerateColumns {
 		}
 		return listRow;
 	}
-	public static void GenerateExcelBySql(Class<?> cls,List listBean,Map beans,Map replaceMap) {
-
-
-	}
+ 
 	/**
 	 * 
 	 * @param cls 需要生成 列表数据的bean.class  
@@ -164,14 +163,14 @@ public class GenerateColumns {
 	 * @param listBean
 	 * @param beans
 	 */
-	public static void GenerateEasyUi(Class<?> cls,List listBean,Map beans) {
+	public static void GenerateEasyUi(Class<?> cls,@SuppressWarnings("rawtypes") List listBean,@SuppressWarnings("rawtypes") Map beans) {
 		GenerateEasyUi(cls, listBean, beans, null);
 	}
-	public static void GenerateEasyUi(List listBean,Map beans) {
+	public static void GenerateEasyUi(@SuppressWarnings("rawtypes") List listBean,@SuppressWarnings("rawtypes") Map beans) {
 		GenerateEasyUi(null, listBean, beans, null);
 	}
 
-	public static void GenerateEasyUi(List listBean,Map beans,Map repalceMap) {
+	public static void GenerateEasyUi(@SuppressWarnings("rawtypes") List listBean,@SuppressWarnings("rawtypes") Map beans,@SuppressWarnings("rawtypes") Map repalceMap) {
 		GenerateEasyUi(null, listBean, beans, repalceMap);
 	}
 	/**
@@ -181,7 +180,8 @@ public class GenerateColumns {
 	 * @param listBean
 	 * @param beans
 	 */
-	public static void GenerateEasyUi(Class<?> cls,List listBean,Map beans,Map replaceMap) {
+	@SuppressWarnings("unchecked")
+	public static void GenerateEasyUi(Class<?> cls,@SuppressWarnings("rawtypes") List listBean,@SuppressWarnings("rawtypes") Map beans,@SuppressWarnings("rawtypes") Map replaceMap) {
 		beans.put("rows", GeneratePageResult(cls,listBean,replaceMap).getRows());
 	}
 	/**
@@ -191,7 +191,7 @@ public class GenerateColumns {
 	 * @param listBean
 	 * @param beans
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static PageResultBean GeneratePageResult(Class<?> cls,List listBean,Map replaceMap) {
 		PageResultBean<Map>  pageResultBean = new PageResultBean();
 		if(cls==null ){
@@ -312,13 +312,14 @@ public class GenerateColumns {
 		String firstLetter = str.substring(0, 1).toUpperCase();  
 		return firstLetter + str.substring(1, str.length());  
 	}
+	@SuppressWarnings("rawtypes")
 	public static PageResultBean  GenerateEasyUi(PageInfo<?> pageInfo) {
-		// TODO Auto-generated method stub
 		PageResultBean  pageResultBean = GeneratePageResult(null, pageInfo.getList(), null);
 		pageResultBean.setTotal(pageInfo.getTotal());
 		return pageResultBean;
 
 	} 
+	@SuppressWarnings("rawtypes")
 	public static PageResultBean GenerateEasyUi(PageInfo pageInfo,Map replaceMap) {
 		// TODO Auto-generated method stub
 		PageResultBean  pageResultBean = GeneratePageResult(null, pageInfo.getList(), replaceMap);
