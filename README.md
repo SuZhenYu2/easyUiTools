@@ -11,8 +11,7 @@
 #>-4、 replaceMap相关替换功能
 
 > **集成方式   **
-> -
->  1、pom依赖<br>`	 
+>  1、pom依赖<br>
 ```<repositories>
 		<repository>
 			<id>suzy2-repository</id>
@@ -28,7 +27,7 @@
 			<artifactId>easyUiTools</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-	```
+```
  
 
 
