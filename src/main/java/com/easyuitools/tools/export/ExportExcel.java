@@ -433,8 +433,11 @@ public class ExportExcel {
 			}
 		}
 		try {
-			wb.write(os);
-			os.flush();
+			if(os!=null){
+				wb.write(os);
+				os.flush();
+			}
+			
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage(),e);
 		}

@@ -420,8 +420,8 @@ public class Convert extends WriterPdf{
 			if(index==0){
 				top=true;
 				left=true;
-				right=true;
-				bottom=true;
+				right=false;
+				bottom=false;
 			}else if(index<cols){
 				//            	if(cellLeftBorderLineStyle(cells.get(0))&&cellRightBorderLineStyle(cells.get(1))){
 				//            		top=true;
