@@ -27,5 +27,6 @@ public @interface Display
      String format() default "";
      String width() default "";
      String DecimalFormat() default "";
+     boolean sortable() default false;
      String replaceKey() default "";
 }

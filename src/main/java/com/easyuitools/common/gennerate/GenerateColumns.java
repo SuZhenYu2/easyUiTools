@@ -40,6 +40,9 @@ public class GenerateColumns {
 				if(display.hidden()){
 					map.put("hidden", display.hidden());
 				}
+				if(display.sortable()){
+					map.put("sortable","ture");
+				}
 				list.add(map);
 			}
 		}
