@@ -1,18 +1,18 @@
 欢迎使用  easyuiTools
-
-
 项目介绍
 -------------------
-# **easyuiTools 介绍**
+*  easyuiTools 介绍*
+* 1、 集成了easyui页面表格生成功能
+* 2、 缓存装载功能
+* 3、 excel导出功能 
+* 4、 replaceMap相关替换功能
 
-#>-1、 集成了easyui页面表格生成功能
-#>-2、 缓存装载功能
-#>-3、 excel导出功能 
-#>-4、 replaceMap相关替换功能
 
-> **集成方式   **
->  1、pom依赖<br>
-```<repositories>
+* 集成方式
+
+* pom依赖
+```
+<repositories>
 		<repository>
 			<id>suzy2-repository</id>
 			<name>suzy2</name>
